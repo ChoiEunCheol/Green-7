@@ -7,7 +7,7 @@ const server = http.createServer(function(request, response){
     
     let doc = `<html><head><body><h1> 오 된다 </h1></body></head></html>`
 
-    response.end(doc);
+    response.end("ㅎㅇ");
 });
 
 server.listen(1234);
