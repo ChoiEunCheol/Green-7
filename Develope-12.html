@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin:0; padding:0; box-sizing: border-box;}
+        #root{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .heart{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+        }
+        .fadeout-animate{
+            animation: fadeout-animate 2s forwards;
+        }
+        @keyframes .fadeout-animate{
+            from{
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <button id="heart-button">Click Me</button>
+        <div id="heart-container"></div>
+    </div>
+<script>
+    const heartButton = document.getElementById("heart-button");
+
+    heartButton.addEventListener("click", function(){
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        const container = document.getElementById("heart-container");
+        container.appendChild(heart);
+        setTimeout(function(){
+            heart.classList.add("fadeout-animate");
+        },50);
+        setTimeout(function(){
+            container.removeChild(heart);
+        },2050);
+    });
+</script>
+</body>
+</html>
