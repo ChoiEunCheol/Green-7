@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #root {
+            width: 1920px;
+            height: 1080px;
+            background-color: violet;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <div id="aaa"></div>
+    </div>
+
+    <script>
+        const root = document.getElementById('root');
+        const aaa = document.getElementById('aaa');
+        aaa.style.width = "100px"
+        aaa.style.height = "100px"
+        aaa.style.backgroundColor = "black"
+        aaa.style.position = "absolute"
+
+        let a = 1;
+        aaa.style.top = "1px";
+
+        function down() {
+            setInterval(function () {
+                aaa.style.top = a + "px";
+                a += 10;
+            }, 60)
+        }
+
+        function up() {
+            setInterval(function () {
+                aaa.style.top = a + "px";
+                a -= 10;
+            }, 60)
+        }
+
+
+        setInterval(function () {
+            let ddd = Boolean(aaa.style.top.replace(/[^0-9]/g, "").charCodeAt() < 500 && aaa.style.top.replace(/[^0-9]/g, "").charCodeAt() > 0);
+            console.log(ddd)
+            if (ddd === false) {
+                up();
+            }
+        if (ddd === true) {
+                down();
+            }
+
+        }, 100)
+
+
+    </script>
+</body>
+
+</html>
